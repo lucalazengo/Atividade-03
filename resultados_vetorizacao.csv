@@ -1,0 +1,5 @@
+Modelo,Features,Tempo (s),Top Features
+CountVectorizer Unigram,19888,0.44,"app, song, music, play, spotifi"
+CountVectorizer Bigram,259920,1.61,"app, song, music, play, spotifi"
+TfidfVectorizer Unigram,19888,0.64,"app, music, song, play, spotifi"
+TfidfVectorizer Bigram,259920,1.95,"app, music, song, good, play"

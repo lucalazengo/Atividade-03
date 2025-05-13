@@ -1,0 +1,53 @@
+# Análise de Reviews do Spotify - Mineração de Dados
+
+##  Descrição
+Análise de reviews textuais do Spotify para comparar técnicas de vetorização e avaliar o impacto de diferentes configurações de n-grams na representação textual e desempenho de classificação.
+
+##  Requisitos Atendidos
+- **Pré-processamento**:
+  - Conversão para minúsculas
+  - Remoção de pontuação/números
+  - Eliminação de stopwords
+  - Stemming (PorterStemmer)
+
+- **Vetorização**:
+  - `CountVectorizer` (unigramas e bigramas)
+  - `TfidfVectorizer` (unigramas e bigramas)
+  - Geração de matrizes vetorizadas
+
+- **Avaliação**:
+  - Comparação do número de features
+  - Análise do impacto dos bigramas
+  - Desempenho com DecisionTreeClassifier
+
+## Principais Resultados
+1. **Volume de Features**:
+   - Unigramas: ~20k features
+   - Bigramas: ~260k features (+1207%)
+
+2. **Desempenho (Acurácia)**:
+
+ - TfidfVectorizer Bigram: 80.8%
+ - CountVectorizer Bigram: 80.3%
+ - TfidfVectorizer Unigram: 80.3%
+ - CountVectorizer Unigram: 79.3%
+
+ 
+3. **Tempos de Processamento**:
+- Bigramas demandaram ~4x mais tempo que unigramas
+- TF-IDF foi marginalmente mais lento que CountVectorizer
+
+4. **Features Mais Relevantes**:
+- "app", "music", "song", "play", "spotifi"
+
+## 🛠️ Como Reproduzir
+1. Instale os requisitos: `pip install pandas scikit-learn nltk`
+2. Execute o notebook célula por célula
+3. Verifique os arquivos gerados:
+- `resultados_vetorizacao.csv`
+- `resultados_acuracia.csv` (se houver labels)
+
+##  Conclusão
+Bigramas enriqueceram significativamente a representação textual (12x mais features) 
+com ganho marginal de acurácia (+1.5pp). TF-IDF superou levemente CountVectorizer, sendo 
+a combinação "TF-IDF + Bigramas" a melhor configuração para este problema.
